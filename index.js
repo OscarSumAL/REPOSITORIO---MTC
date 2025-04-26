@@ -37,6 +37,7 @@ app.use('/api/usuarios', authMiddleware, usuarioRoutes);
 app.use('/api/excel', authMiddleware, excelRoutes);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);
-}); 
+const HOST = '0.0.0.0'; // Escuchar en todas las interfaces
+app.listen(PORT, HOST, () => {
+    console.log(`Servidor corriendo en http://${HOST}:${PORT}`);
+});
